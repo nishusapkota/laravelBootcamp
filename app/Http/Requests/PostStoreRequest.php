@@ -24,7 +24,7 @@ class PostStoreRequest extends FormRequest
         return [
             'name'=>'required',
             'description'=>'required|max:30',
-            'image'=>'required|mimetypes:jpg,img,png,jpeg'
+            'image'=>'required|image|mimes:jpeg,png,jpg,gif'
         ];
     }
 
@@ -32,7 +32,7 @@ class PostStoreRequest extends FormRequest
     {
         return[
             'name'=>'product name',
-            'description'=>'product desc',
+            'description'=>'product description',
             'image'=>'product image'
         ];
     }

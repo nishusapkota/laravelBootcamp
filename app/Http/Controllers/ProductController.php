@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $products=Product::all();
         return view('product.index',compact('products'));
     }
@@ -49,7 +50,7 @@ class ProductController extends Controller
         $request->validate([
             'name' =>'required',
             'description' =>'required|max:30',
-            'image' => 'image|mimes:jpg,png,jpeg'
+            'image' => 'image|mimes:jpeg,png,jpg,gif'
         ]);
         if($request->hasFile('image')){
             if ($product->image && file_exists(public_path($product->image))) {
@@ -60,7 +61,7 @@ class ProductController extends Controller
             $product->image='product/'.$image_name;
         }
         $product->name=$request->name;
-        $product->description=$request->description;
+        $product->description=$request->description;+
         $product->save();
         return redirect()->route('product.index')->with('message','Product updated successfully');
     }
