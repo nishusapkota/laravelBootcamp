@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
@@ -26,4 +27,4 @@ Route::get('/product/{product}',[ProductController::class,'edit'])->name('produc
 Route::patch('/product/{product}',[ProductController::class,'update'])->name('product.update');
 Route::delete('/product/{product}',[ProductController::class,'destroy'])->name('product.destroy');
 
-
+Route::resource('employees',EmployeeController::class);
